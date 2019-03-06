@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'medicines', to: 'medicines#home'
+  get 'medicines/new'
+  root 'medicines#home'
 end

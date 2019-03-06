@@ -1,0 +1,21 @@
+<% provide(:title, "医薬品情報") %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@medicine) do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :title %>
+      <%= f.text_area :title %>
+
+      <%= f.label :code %>
+      <%= f.text_field :code %>
+
+      <%= f.label :reported_at %>
+      <%= f.datetime_select :reported_at %>
+
+      <%= f.submit "登録", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
