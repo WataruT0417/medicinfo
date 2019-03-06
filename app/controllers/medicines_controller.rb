@@ -1,6 +1,6 @@
 class MedicinesController < ApplicationController
   def home
-
+    @medicine = Medicine.new
   end
 
   def new

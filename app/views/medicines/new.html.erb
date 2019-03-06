@@ -1,21 +1,24 @@
 <% provide(:title, "医薬品情報") %>
+<div class="container">
+  <h2>医薬品情報　新規登録</h2>
 
+</div>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-4 col-md-offset-4">
     <%= form_for(@medicine) do |f| %>
-      <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.label "医薬品名", class: 'col-xs-2 control-label' %>
+      <%= f.text_field :name, class: 'col-xs-10' %>
 
-      <%= f.label :title %>
-      <%= f.text_area :title %>
+      <%= f.label "タイトル", class: 'col-xs-2 control-label' %>
+      <%= f.text_area :title, class: 'col-xs-10'  %>
 
-      <%= f.label :code %>
-      <%= f.text_field :code %>
+      <%= f.label "コード", class: 'col-xs-2 control-label' %>
+      <%= f.text_field :code, class: 'col-xs-10'  %>
 
-      <%= f.label :reported_at %>
-      <%= f.datetime_select :reported_at %>
+      <%= f.label "報告日", class: 'col-xs-2 control-label' %>
+      <%= f.date_field :reported_at, class: 'col-xs-10'  %>
 
-      <%= f.submit "登録", class: "btn btn-primary" %>
+      <%= f.submit "登録", class: "btn btn-primary col-xs-offset-5 col-xs-2" %>
     <% end %>
   </div>
 </div>
