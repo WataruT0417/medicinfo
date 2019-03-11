@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_06_070349) do
+ActiveRecord::Schema.define(version: 2019_03_11_085911) do
 
   create_table "medicines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 100
     t.text "title"
     t.string "code", limit: 20
-    t.timestamp "reported_at"
+    t.date "reported_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
