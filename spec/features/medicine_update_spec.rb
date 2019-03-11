@@ -10,7 +10,6 @@ RSpec.describe MedicinesController, type: :feature do
 
   scenario 'valid update medicine data' do
     expect { click_button '修正' }.not_to change(Medicine, :count)
-    success_messages("")
   end
 
   scenario 'invalid update medicine data' do
