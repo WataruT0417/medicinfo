@@ -12,6 +12,8 @@ gem 'jbuilder',     '2.7.0'
 gem 'bootsnap', require: false
 gem 'activestorage', '~> 5.2.0'
 gem 'pry-rails'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 group :development, :test do
   gem 'mysql2', '0.5.2'
   gem 'byebug',  '9.0.6', platform: :mri
@@ -23,6 +25,8 @@ group :development, :test do
   gem 'rspec-request_describer', '0.2.2'
   gem 'autodoc', '0.7.2'
   gem 'json_spec', '1.1.5'
+  gem 'capybara', '3.14.0'
+  gem "selenium-webdriver", '3.141.0'
 end
 
 group :development do

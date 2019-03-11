@@ -1,4 +1,7 @@
 <% provide(:title, "医薬品情報") %>
+<% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
 <h1>医薬品情報</h1>
 <div class="row">
   <div class="col-md-5 col-md-offset-3">
@@ -15,35 +18,36 @@
       <%= f.label "報告日", class: 'text-right col-xs-4 control-label' %>
       <%= f.date_field :reported_at, class: 'col-xs-8'  %>
       
-      <%= f.submit "新規", class: "btn btn-primary col-xs-offset-4 col-xs-2" %>
+      <%= link_to "新規", medicines_new_path, class: "btn btn-primary col-xs-offset-4 col-xs-2" %>
       <%= f.submit "検索", class: "btn btn-primary col-xs-offset-2 col-xs-2" %>
     <% end %>
   </div>
 </div>
 <div class="container" >
- <table class="table table-condensed">
+  <%= will_paginate @medicines, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+  <table class="table table-condensed medicines">
     <thead>
-        <tr>
-            <th>ID</th>
-            <th>報告日</th>
-            <th>医薬品名</th>
-            <th>タイトル</th>
-            <th>コード</th>
-        </tr>
+      <tr>
+        <th>ID</th>
+        <th>報告日</th>
+        <th>医薬品名</th>
+        <th>タイトル</th>
+        <th>コード</th>
+        <th></th>
+      </tr>
     </thead>
-    <tbody>
-        <tr>
-            <th>1</th>
-            <td>Hanako</td>
-            <td>Qiita</td>
-            <td>@Hanaq</td>
-        </tr>
-        <tr>
-            <th>2</th>
-            <td>Taro</td>
-            <td>Qiita</td>
-            <td>@TaroQ</td>
-        </tr>
-    </tbody>
+      <% @medicines.each do |medicine| %>
+        <tbody>
+          <tr>
+            <th><%= medicine.id %></th>
+            <td><%= medicine.reported_at %></td>
+            <td><%= medicine.name %></td>
+            <td><%= medicine.title %></td>
+            <td><%= medicine.code %></td>
+            <td><%= link_to "修正", "/medicines/#{medicine.id}/edit", class: 'btn btn-default' %></td>
+          </tr>
+        </tbody>
+      <% end %>
+    
   </table>
 </div>
