@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe MedicinesController, type: :request do
   before do
     @params_title = ' | 医薬品情報管理システム'
-    @medicine = FactoryGirl.build(:medicine)
+    @medicine = FactoryGirl.create(:medicine)
   end
 
   describe "GET /medicines" do
@@ -20,4 +20,5 @@ RSpec.describe MedicinesController, type: :request do
       assert_select "title",  "医薬品情報#{@params_title}"
     end
   end
+
 end

@@ -33,6 +33,12 @@ class MedicinesController < ApplicationController
     end
   end
 
+  def destroy
+    Medicine.find(params[:id]).destroy
+    flash[:success] = "削除しました。"
+    redirect_to :action => 'home'
+  end
+
   def medicine_params
     params.require(:medicine).permit(:name, :title, :code, :reported_at)
   end
