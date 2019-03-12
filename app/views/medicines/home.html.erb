@@ -17,6 +17,9 @@
 
       <%= f.label "報告日", class: 'text-right col-xs-4 control-label' %>
       <%= f.date_field :reported_at, class: 'col-xs-8'  %>
+
+      <%= f.label "承認者", class: 'text-right col-xs-4 control-label' %>
+      <%= f.text_field :approval, class: 'col-xs-8'  %>
       
       <%= link_to "新規", medicines_new_path, class: "btn btn-primary col-xs-offset-4 col-xs-2" %>
       <%= f.submit "検索", class: "btn btn-primary col-xs-offset-2 col-xs-2" %>
@@ -33,6 +36,7 @@
         <th>医薬品名</th>
         <th>タイトル</th>
         <th>コード</th>
+        <th>承認者</th>
         <th></th>
         <th></th>
       </tr>
@@ -45,6 +49,7 @@
             <td><%= medicine.name %></td>
             <td><%= medicine.title %></td>
             <td><%= medicine.code %></td>
+            <td><%= medicine.approval %></td>
             <td><%= link_to "修正", "/medicines/#{medicine.id}/edit", class: 'btn btn-default btn-xs' %></td>
             <td><%= link_to "削除", "/medicines/#{medicine.id}/destroy", method: :delete,
              class: 'btn btn-default btn-xs', id: "destroy_#{medicine.id}", data: {confirm: '削除してもよろしいですか?'} %></td>

@@ -11,6 +11,7 @@ RSpec.describe Medicine, type: :model do
     it { expect(@medicine).to respond_to(:title) }
     it { expect(@medicine).to respond_to(:code) }
     it { expect(@medicine).to respond_to(:reported_at) }
+    it { expect(@medicine).to respond_to(:approval) }
   end
 
   describe 'validations' do
@@ -31,6 +32,10 @@ RSpec.describe Medicine, type: :model do
       end
       it 'code' do
         @medicine.code = "a" * 21
+        expect(@medicine).not_to be_valid
+      end
+      it 'approval' do
+        @medicine.approval = "a" * 21
         expect(@medicine).not_to be_valid
       end
     end

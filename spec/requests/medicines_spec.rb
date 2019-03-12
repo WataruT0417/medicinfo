@@ -20,5 +20,4 @@ RSpec.describe MedicinesController, type: :request do
       assert_select "title",  "医薬品情報#{@params_title}"
     end
   end
-
 end

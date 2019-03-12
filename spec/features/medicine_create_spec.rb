@@ -13,6 +13,7 @@ RSpec.describe MedicinesController, type: :feature do
     fill_in "title", with: @medicine.title
     fill_in "code", with: @medicine.code
     fill_in "reported_at", with: @medicine.reported_at
+    fill_in "approval", with: @medicine.approval
     expect { click_button '登録' }.to change(Medicine, :count)
   end
 
@@ -21,6 +22,7 @@ RSpec.describe MedicinesController, type: :feature do
     fill_in "title", with: " "
     fill_in "code", with: @medicine.code
     fill_in "reported_at", with: @medicine.reported_at
+    fill_in "approval", with: @medicine.approval
     click_button '登録'
     expect(page).to have_content("can't be blank")
   end

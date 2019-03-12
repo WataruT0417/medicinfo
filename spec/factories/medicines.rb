@@ -5,5 +5,6 @@ FactoryGirl.define do
     title "Test Title"
     code "MD-20"
     reported_at "2019/12/31"
+    approval "テスト　職員"
   end  
 end
