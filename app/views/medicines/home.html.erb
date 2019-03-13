@@ -5,7 +5,7 @@
 <h1>医薬品情報</h1>
 <div class="row">
   <div class="col-md-5 col-md-offset-3">
-    <%= form_for(@medicine) do |f| %>
+    <%= form_for @medicine, url: '/medicines/filter', html: {method: 'get'} do |f| %>
       <%= f.label "医薬品名", class: 'text-right col-xs-4 control-label' %>
       <%= f.text_field :name, class: 'col-xs-8' %>
 
@@ -19,7 +19,7 @@
       <%= f.date_field :reported_at, class: 'col-xs-8'  %>
 
       <%= f.label "承認者", class: 'text-right col-xs-4 control-label' %>
-      <%= f.text_field :approval, class: 'col-xs-8'  %>
+      <%= f.select :approval, {}, {}, class: 'col-xs-8'  %>
       
       <%= link_to "新規", medicines_new_path, class: "btn btn-primary col-xs-offset-4 col-xs-2" %>
       <%= f.submit "検索", class: "btn btn-primary col-xs-offset-2 col-xs-2" %>
