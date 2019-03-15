@@ -40,7 +40,6 @@ RSpec.describe MedicinesController, type: :request do
       is_expected.to eq 200
       assert_select "title",  "医薬品情報#{@params_title}"
     end
-
   end
 
   describe "GET #filter" do
