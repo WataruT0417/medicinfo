@@ -110,7 +110,8 @@ input {
   margin-bottom: 30px;
 
 }
-.medicines-data {
+
+.table {
   th, td {
     display: table-cell;
     text-align: center;
@@ -119,4 +120,11 @@ input {
   .position-left {
     text-align: left;
   }
+
 }
+.master-list {
+  table, th, td {
+    border-style: none!important;
+  }
+}
+/* masters */

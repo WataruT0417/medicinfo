@@ -1,0 +1,17 @@
+<% provide(:title, "マスタ管理") %>
+<% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+<h1>マスタ管理</h1>
+<div class="container" >
+  <table class="table master-list">
+    <tbody>
+      <tr>
+        <td class="col-xs-3 "></th>
+        <td class="col-xs-3 "><%= link_to "職員名マスタ", "/masters/staff", class: 'btn btn-default btn-block' %></th>
+        <td class="col-xs-3">職員名を管理します。</th>
+        <td class="col-xs-3"></th> 
+      </tr>
+    </tbody>
+  </table>
+</div>
