@@ -16,9 +16,11 @@ class MedicinesController < ApplicationController
     @medicines = Medicine.paginate(page: params[:page], per_page: 10).order('id desc')
     @medicines = @medicines.where("name like ?", "%#{@medicine.name}%") if @medicine.name.present?
     @medicines = @medicines.where("title like ?", "%#{@medicine.title}%") if @medicine.title.present?
-    @medicines = @medicines.where("code like ?", "%#{@medicine.code}%") if @medicine.code.present?
     @medicines = @medicines.where("reported_at like ?", "%#{@medicine.reported_at}%") if @medicine.reported_at.present?
-    @medicines = @medicines.where("approval like ?", "%#{@medicine.approval}%") if @medicine.approval.present?
+    @medicines = @medicines.where("request_staff like ?", "%#{@medicine.request_staff}%") if @medicine.request_staff.present?
+    @medicines = @medicines.where("detail like ?", "%#{@medicine.detail}%") if @medicine.detail.present?
+    @medicines = @medicines.where("source like ?", "%#{@medicine.source}%") if @medicine.source.present?
+    @medicines = @medicines.where("report_staff like ?", "%#{@medicine.report_staff}%") if @medicine.report_staff.present?
     render 'home'
   end
 
@@ -53,6 +55,6 @@ class MedicinesController < ApplicationController
   end
 
   def medicine_params
-    params.require(:medicine).permit(:name, :title, :code, :reported_at, :approval)
+    params.require(:medicine).permit(:name, :title, :reported_at, :request_staff, :detail, :source, :report_staff)
   end
 end

@@ -9,9 +9,11 @@ RSpec.describe Medicine, type: :model do
     it { expect(@medicine).to respond_to(:id) }
     it { expect(@medicine).to respond_to(:name) }
     it { expect(@medicine).to respond_to(:title) }
-    it { expect(@medicine).to respond_to(:code) }
     it { expect(@medicine).to respond_to(:reported_at) }
-    it { expect(@medicine).to respond_to(:approval) }
+    it { expect(@medicine).to respond_to(:request_staff) }
+    it { expect(@medicine).to respond_to(:detail) }
+    it { expect(@medicine).to respond_to(:source) }
+    it { expect(@medicine).to respond_to(:report_staff) }
   end
 
   describe 'validations' do
@@ -30,12 +32,12 @@ RSpec.describe Medicine, type: :model do
         @medicine.name = "a" * 101
         expect(@medicine).not_to be_valid
       end
-      it 'code' do
-        @medicine.code = "a" * 21
+      it 'request_staff' do
+        @medicine.request_staff = "a" * 21
         expect(@medicine).not_to be_valid
       end
-      it 'approval' do
-        @medicine.approval = "a" * 21
+      it 'report_staff' do
+        @medicine.report_staff = "a" * 21
         expect(@medicine).not_to be_valid
       end
     end

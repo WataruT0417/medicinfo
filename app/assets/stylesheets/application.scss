@@ -6,6 +6,9 @@
  -webkit-box-sizing: border-box;
  box-sizing:         border-box;
 }
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+  vertical-align: middle;
+}
 
 /* typography */
 
@@ -82,7 +85,6 @@ footer {
 
 
 /* forms */
-
 input, textarea, select, .uneditable-input {
  border: 1px solid #bbb;
  width: 100%;
@@ -97,14 +99,24 @@ input {
 /* miscellaneous */
 
 .debug_dump {
- clear: both;
- float: left;
- width: 100%;
- margin-top: 45px;
- @include box_sizing;
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
 
 .row {
   margin-bottom: 30px;
 
+}
+.medicines-data {
+  th, td {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .position-left {
+    text-align: left;
+  }
 }

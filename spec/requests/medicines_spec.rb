@@ -11,15 +11,17 @@ RSpec.describe MedicinesController, type: :request do
     context 'medicine data exists' do
       it "returns http success" do
         is_expected.to eq 200
-        assert_select "title",  "医薬品情報#{@params_title}"
+        assert_select "title",  "DI情報#{@params_title}"
       end
       it 'show medicine data' do
         is_expected.to eq 200
         expect(response.body).to include @medicine.name
         expect(response.body).to include @medicine.title
-        expect(response.body).to include @medicine.code
         expect(response.body).to include @medicine.reported_at.to_s
-        expect(response.body).to include @medicine.approval
+        expect(response.body).to include @medicine.request_staff
+        expect(response.body).to include @medicine.detail
+        expect(response.body).to include @medicine.source
+        expect(response.body).to include @medicine.report_staff
       end
     end
     context 'medicine data no exists' do
@@ -28,9 +30,11 @@ RSpec.describe MedicinesController, type: :request do
         is_expected.to eq 200        
         expect(response.body).not_to include @medicine.name
         expect(response.body).not_to include @medicine.title
-        expect(response.body).not_to include @medicine.code
         expect(response.body).not_to include @medicine.reported_at.to_s
-        expect(response.body).not_to include @medicine.approval
+        expect(response.body).not_to include @medicine.request_staff
+        expect(response.body).not_to include @medicine.detail
+        expect(response.body).not_to include @medicine.source
+        expect(response.body).not_to include @medicine.report_staff
       end
     end
   end
@@ -38,7 +42,7 @@ RSpec.describe MedicinesController, type: :request do
   describe "GET /medicines/new" do
     it "returns http success" do
       is_expected.to eq 200
-      assert_select "title",  "医薬品情報#{@params_title}"
+      assert_select "title",  "DI情報#{@params_title}"
     end
   end
 
@@ -46,31 +50,35 @@ RSpec.describe MedicinesController, type: :request do
     it "returns http success" do
       subject {get :filter, @medicine }
       is_expected.to eq 200
-      assert_select "title",  "医薬品情報#{@params_title}"
+      assert_select "title",  "DI情報#{@params_title}"
     end
     it "show filter data" do
       subject {get :filter, @medicine }
       is_expected.to eq 200
       expect(response.body).to include @medicine.name
       expect(response.body).to include @medicine.title
-      expect(response.body).to include @medicine.code
       expect(response.body).to include @medicine.reported_at.to_s
-      expect(response.body).to include @medicine.approval
+      expect(response.body).to include @medicine.request_staff
+      expect(response.body).to include @medicine.detail
+      expect(response.body).to include @medicine.source
+      expect(response.body).to include @medicine.report_staff
     end
   end
 
   describe "GET /medicines/1/edit" do
     it "returns http success" do
       is_expected.to eq 200
-      assert_select "title",  "医薬品情報#{@params_title}"
+      assert_select "title",  "DI情報#{@params_title}"
     end
     it "show edit data" do
       is_expected.to eq 200
       expect(response.body).to include @medicine.name
       expect(response.body).to include @medicine.title
-      expect(response.body).to include @medicine.code
       expect(response.body).to include @medicine.reported_at.to_s
-      expect(response.body).to include @medicine.approval
+      expect(response.body).to include @medicine.request_staff
+      expect(response.body).to include @medicine.detail
+      expect(response.body).to include @medicine.source
+      expect(response.body).to include @medicine.report_staff
     end
   end
 

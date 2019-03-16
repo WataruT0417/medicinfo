@@ -1,26 +1,32 @@
 FactoryGirl.define do
-  sequence :seq_id do |i| 
-    i.to_i
-  end
   sequence :seq_name do |i| 
     "テスト医薬品#{i}"
   end
   sequence :seq_title do |i| 
     "テストタイトル#{i}"
   end
-  sequence :seq_code do |i| 
-    "TEST-#{i}"
+  sequence :seq_request_staff do |i| 
+    "テスト 質問者#{i}"
   end
-  sequence :seq_approval do |i| 
-    "テスト 職員#{i}"
+  sequence :seq_detail do |i| 
+    "詳細テスト#{i} " * 10
   end
+  sequence :seq_source do |i| 
+    "情報源テスト#{i}"
+  end
+  sequence :seq_report_staff do |i| 
+    "テスト 報告者#{i}"
+  end
+  
 
   factory :medicine do
     name {generate :seq_name}
     title {generate :seq_title}
-    code {generate :seq_code}
     reported_at "2019/12/31"
-    approval {generate :seq_approval}
+    request_staff {generate :seq_request_staff}
+    detail {generate :seq_detail}
+    source {generate :seq_source}
+    report_staff {generate :seq_report_staff}
   end 
 
 end
