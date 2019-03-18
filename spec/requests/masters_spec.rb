@@ -13,7 +13,7 @@ RSpec.describe MedicinesController, type: :request do
     end
     it 'show btn data' do
       is_expected.to eq 200
-      assert_select "a[href=?]", '/masters/staff', count: 1
+      assert_select "a[href=?]", '/staffs', count: 1
     end
   end
 

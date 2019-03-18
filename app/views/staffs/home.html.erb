@@ -1,0 +1,32 @@
+<% provide(:title, "マスタ管理（職員名）") %>
+<% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+<div class="container">
+  <h1>職員名マスタ</h1>
+  <%= link_to "新規登録", staffs_new_path, class: "btn btn-primary col-xs-offset-5 col-xs-2" %>
+</div>
+<div class="container" >
+  <table class="table staff-data table-bordered">
+    <thead>
+      <tr>
+        <th class="col-xs-5">ID</th>
+        <th class="col-xs-5">職員名</th>
+        <th class="col-xs-2"></th>
+      </tr>
+    </thead>
+      <% @staffs.each do |staff| %>
+        <tbody>
+          <tr>
+            <td><%= staff.id %></td>
+            <td><%= staff.name %></td>
+            <td>
+              <%= link_to "修正", "/staffs/#{staff.id}/edit", class: 'btn btn-default btn-xs' %> 
+              <%= link_to "削除", "/staffs/#{staff.id}/destroy", method: :delete,
+              class: 'btn btn-default btn-xs', id: "destroy_#{staff.id}", data: {confirm: '削除してもよろしいですか?'} %>
+            </td>
+          </tr>
+        </tbody>
+      <% end %>
+  </table>
+</div>

@@ -10,8 +10,14 @@ Rails.application.routes.draw do
   
   get 'masters', to: 'masters#home'
   
+  get 'staffs', to: 'staffs#home'
+  get 'staffs/new', to: 'staffs#new'
+  post 'staffs',  to: 'staffs#create'
+  delete 'staffs/:id/destroy', to: 'staffs#destroy'  
+
   root 'medicines#home'
   
+  resources :staffs
   resources :medicines
   resources :masters
 end
