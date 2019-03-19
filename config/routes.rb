@@ -16,6 +16,14 @@ Rails.application.routes.draw do
   delete 'reactions/:id/destroy', to: 'reactions#destroy'  
   get 'reactions/filter', to: 'reactions#filter', as: 'reactions_filter'
 
+  patch 'doubts/:id', to: 'doubts#update', as: 'update_doubt'
+  get 'doubts', to: 'doubts#home'
+  get 'doubts/new'
+  get 'doubts/:id/edit', to: 'doubts#edit'
+  post 'doubts',  to: 'doubts#create'
+  delete 'doubts/:id/destroy', to: 'doubts#destroy'  
+  get 'doubts/filter', to: 'doubts#filter', as: 'doubts_filter'
+
   get 'masters', to: 'masters#home'
   
   get 'staffs', to: 'staffs#home'
@@ -27,6 +35,7 @@ Rails.application.routes.draw do
   
   resources :medicines
   resources :reactions
+  resources :doubts
   resources :masters
   resources :staffs
   
