@@ -15,7 +15,7 @@ FactoryGirl.define do
     "2000#{i} "
   end
   sequence :seq_reaction_patient_name do |i| 
-    "テスト患者#{i} " * 10
+    "テスト 患者#{i} " * 10
   end
   sequence :seq_reaction_report_staff do |i| 
     "テスト 報告者#{i}"
