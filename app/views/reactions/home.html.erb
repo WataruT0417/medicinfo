@@ -1,0 +1,75 @@
+<% provide(:title, "副作用情報") %>
+<% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+<% end %>
+<h1>副作用情報</h1>
+<div class="row">
+  <div class="col-md-5 col-md-offset-3">
+    <%= form_for @reaction, url: '/reactions/filter', html: {method: 'get'} do |f| %>
+      <%= f.label "医薬品名", class: 'text-right col-xs-4 control-label' %>
+      <%= f.text_field :name, class: 'col-xs-8', id: 'name' %>
+
+      <%= f.label "タイトル", class: 'text-right col-xs-4 control-label' %>
+      <%= f.text_field :title, class: 'col-xs-8', id: 'title' %>
+
+      <%= f.label "報告日", class: 'text-right col-xs-4 control-label' %>
+      <%= f.date_field :reported_at, class: 'col-xs-8', id: 'reported_at' %>
+
+      <%= f.label "医師名", class: 'text-right col-xs-4 control-label' %>
+      <%= f.text_field :doctor, class: 'col-xs-8', id: 'doctor' %>
+
+      <%= f.label "患者ID", class: 'text-right col-xs-4 control-label' %>
+      <%= f.text_field :patient_id, class: 'col-xs-8', id: 'patient_id' %>
+
+      <%= f.label "患者氏名", class: 'text-right col-xs-4 control-label' %>
+      <%= f.text_field :patient_name, class: 'col-xs-8', id: 'patient_name' %>
+
+      <%= f.label "詳細", class: 'text-right col-xs-4 control-label' %>
+      <%= f.text_field :detail, class: 'col-xs-8', id: 'detail' %>
+
+      <%= f.label "報告者", class: 'text-right col-xs-4 control-label' %>
+      <%= f.select :report_staff, Staff.all.map{|s| [s.name]}, {}, class: 'col-xs-8', id: 'report_staff' %>
+
+      <%= link_to "新規", reactions_new_path, class: "btn btn-primary col-xs-offset-4 col-xs-2" %>
+      <%= f.submit "検索", class: "btn btn-primary col-xs-offset-2 col-xs-2" %>
+    <% end %>
+  </div>
+</div>
+<div class="container" >
+  <%= will_paginate @reactions, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+  <table class="table reactions-data table-bordered">
+    <thead>
+      <tr>
+        <th class="col-xs-1">ID</th>
+        <th class="col-xs-3">医薬品 / タイトル</th>
+        <th class="col-xs-1">報告者 / 報告日</th>
+        <th class="col-xs-1">医師名</th>
+        <th class="col-xs-2">患者ID / 患者氏名</th>
+        <th class="col-xs-3">詳細</th>
+        <th class="col-xs-1"></th>
+      </tr>
+    </thead>
+      <% @reactions.each do |reaction| %>
+        <tbody>
+          <tr>
+            <td rowspan="2"><%= reaction.id %></td>
+            <td><%= reaction.name %></td>
+            <td><%= reaction.report_staff %></td>
+            <td rowspan="2" ><%= reaction.doctor %></td>
+            <td><%= reaction.patient_id %></td>
+            <td rowspan="2" class="position-left"><%= reaction.detail %></td>            
+            <td rowspan="2">
+              <%= link_to "修正", "/reactions/#{reaction.id}/edit", class: 'btn btn-default btn-xs' %> 
+              <%= link_to "削除", "/reactions/#{reaction.id}/destroy", method: :delete,
+              class: 'btn btn-default btn-xs', id: "destroy_#{reaction.id}", data: {confirm: '削除してもよろしいですか?'} %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= reaction.title %></td>
+            <td><%= reaction.reported_at %></td>
+            <td><%= reaction.patient_name %></td>
+          </tr>
+        </tbody>
+      <% end %>
+  </table>
+</div>

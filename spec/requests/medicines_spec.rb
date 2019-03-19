@@ -11,7 +11,6 @@ RSpec.describe MedicinesController, type: :request do
     context 'medicine data exists' do
       it "returns http success" do
         is_expected.to eq 200
-        assert_select "title",  "DI情報#{@params_title}"
       end
       it 'show medicine data' do
         is_expected.to eq 200
@@ -42,7 +41,6 @@ RSpec.describe MedicinesController, type: :request do
   describe "GET /medicines/new" do
     it "returns http success" do
       is_expected.to eq 200
-      assert_select "title",  "DI情報#{@params_title}"
     end
   end
 
@@ -50,7 +48,6 @@ RSpec.describe MedicinesController, type: :request do
     it "returns http success" do
       subject {get :filter, @medicine }
       is_expected.to eq 200
-      assert_select "title",  "DI情報#{@params_title}"
     end
     it "show filter data" do
       subject {get :filter, @medicine }
@@ -68,7 +65,6 @@ RSpec.describe MedicinesController, type: :request do
   describe "GET /medicines/1/edit" do
     it "returns http success" do
       is_expected.to eq 200
-      assert_select "title",  "DI情報#{@params_title}"
     end
     it "show edit data" do
       is_expected.to eq 200
