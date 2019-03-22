@@ -22,7 +22,7 @@
       <%= f.text_field :detail, class: 'col-xs-8', id: 'detail' %>
 
       <%= f.label "報告者", class: 'text-right col-xs-4 control-label' %>
-      <%= f.select :report_staff, Staff.all.map{|s| [s.name]}, {}, class: 'col-xs-8', id: 'report_staff' %>
+      <%= f.select :report_staff, Staff.all.map{|s| [s.name]}, {include_blank: true}, class: 'col-xs-8', id: 'report_staff' %>
 
       <%= link_to "新規", doubts_new_path, class: "btn btn-primary col-xs-offset-4 col-xs-2" %>
       <%= f.submit "検索", class: "btn btn-primary col-xs-offset-2 col-xs-2" %>

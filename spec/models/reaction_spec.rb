@@ -15,6 +15,7 @@ RSpec.describe Reaction, type: :model do
     it { expect(@reaction).to respond_to(:patient_name) }
     it { expect(@reaction).to respond_to(:detail) }
     it { expect(@reaction).to respond_to(:report_staff) }
+    it { expect(@reaction).to respond_to(:approval_flg) }
   end
 
   describe 'validations' do

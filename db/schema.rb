@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_023529) do
+ActiveRecord::Schema.define(version: 2019_03_22_064034) do
 
   create_table "doubts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 100
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_023529) do
     t.string "report_staff", limit: 100
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "approval_flg", default: false
   end
 
   create_table "medicines", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_023529) do
     t.string "detail"
     t.string "source"
     t.string "report_staff", limit: 20
+    t.boolean "approval_flg", default: false
   end
 
   create_table "reactions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,6 +48,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_023529) do
     t.string "report_staff", limit: 100
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "approval_flg", default: false
   end
 
   create_table "staffs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

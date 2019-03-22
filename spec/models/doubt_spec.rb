@@ -13,6 +13,7 @@ RSpec.describe Doubt, type: :model do
     it { expect(@doubt).to respond_to(:doctor) }
     it { expect(@doubt).to respond_to(:detail) }
     it { expect(@doubt).to respond_to(:report_staff) }
+    it { expect(@doubt).to respond_to(:approval_flg) }
   end
 
   describe 'validations' do

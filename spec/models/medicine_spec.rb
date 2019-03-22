@@ -14,6 +14,7 @@ RSpec.describe Medicine, type: :model do
     it { expect(@medicine).to respond_to(:detail) }
     it { expect(@medicine).to respond_to(:source) }
     it { expect(@medicine).to respond_to(:report_staff) }
+    it { expect(@medicine).to respond_to(:approval_flg) }
   end
 
   describe 'validations' do

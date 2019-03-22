@@ -55,6 +55,6 @@ class MedicinesController < ApplicationController
   end
 
   def medicine_params
-    params.require(:medicine).permit(:name, :title, :reported_at, :request_staff, :detail, :source, :report_staff)
+    params.require(:medicine).permit(:name, :title, :reported_at, :request_staff, :detail, :source, :report_staff, :approval_flg)
   end
 end
