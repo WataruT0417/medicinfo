@@ -40,9 +40,8 @@
   <table class="table reactions-data table-bordered">
     <thead>
       <tr>
-        <th class="col-xs-1">ID</th>
         <th class="col-xs-3">医薬品 / タイトル</th>
-        <th class="col-xs-1">報告者 / 報告日</th>
+        <th class="col-xs-2">報告者 / 報告日</th>
         <th class="col-xs-1">医師名</th>
         <th class="col-xs-2">患者ID / 患者氏名</th>
         <th class="col-xs-3">詳細</th>
@@ -52,7 +51,6 @@
       <% @reactions.each do |reaction| %>
         <tbody>
           <tr>
-            <td rowspan="2"><%= reaction.id %></td>
             <td><%= reaction.name %></td>
             <td><%= reaction.report_staff %></td>
             <td rowspan="2" ><%= reaction.doctor %></td>

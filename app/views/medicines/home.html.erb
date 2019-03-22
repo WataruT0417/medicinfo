@@ -16,7 +16,7 @@
       <%= f.date_field :reported_at, class: 'col-xs-8', id: 'reported_at' %>
 
       <%= f.label "質問者", class: 'text-right col-xs-4 control-label' %>
-      <%= f.select :request_staff, Staff.all.map{|s| [s.name]}, {}, class: 'col-xs-8', id: 'request_staff' %>
+      <%= f.text_field :request_staff, class: 'col-xs-8', id: 'request_staff' %>
 
       <%= f.label "詳細", class: 'text-right col-xs-4 control-label' %>
       <%= f.text_field :detail, class: 'col-xs-8', id: 'detail' %>
@@ -25,7 +25,7 @@
       <%= f.text_field :source, class: 'col-xs-8', id: 'source' %>
 
       <%= f.label "報告者", class: 'text-right col-xs-4 control-label' %>
-      <%= f.select :report_staff, Staff.all.map{|s| [s.name]}, {}, class: 'col-xs-8', id: 'report_staff' %>
+      <%= f.select :report_staff, Staff.all.map{|s| [s.name]}, {include_blank: true}, class: 'col-xs-8', id: 'report_staff' %>
 
       <%= link_to "新規", medicines_new_path, class: "btn btn-primary col-xs-offset-4 col-xs-2" %>
       <%= f.submit "検索", class: "btn btn-primary col-xs-offset-2 col-xs-2" %>
@@ -37,18 +37,16 @@
   <table class="table medicines-data table-bordered">
     <thead>
       <tr>
-        <th class="col-xs-1">ID</th>
         <th class="col-xs-3">医薬品 / タイトル</th>
         <th class="col-xs-2">報告者 / 質問者</th>
         <th class="col-xs-2">報告日 / 情報元</th>
-        <th class="col-xs-3">詳細</th>
+        <th class="col-xs-4">詳細</th>
         <th class="col-xs-1"></th>
       </tr>
     </thead>
       <% @medicines.each do |medicine| %>
         <tbody>
           <tr>
-            <td rowspan="2"><%= medicine.id %></td>
             <td><%= medicine.name %></td>
             <td><%= medicine.report_staff %></td>
             <td><%= medicine.reported_at %></td>

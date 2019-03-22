@@ -34,18 +34,16 @@
   <table class="table doubts-data table-bordered">
     <thead>
       <tr>
-        <th class="col-xs-1">ID</th>
         <th class="col-xs-3">医薬品 / タイトル</th>
         <th class="col-xs-2">報告者 / 報告日</th>
         <th class="col-xs-2">医師名</th>
-        <th class="col-xs-3">詳細</th>
+        <th class="col-xs-4">詳細</th>
         <th class="col-xs-1"></th>
       </tr>
     </thead>
       <% @doubts.each do |doubt| %>
         <tbody>
           <tr>
-            <td rowspan="2"><%= doubt.id %></td>
             <td><%= doubt.name %></td>
             <td><%= doubt.report_staff %></td>
             <td rowspan="2" ><%= doubt.doctor %></td>
