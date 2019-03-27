@@ -1,4 +1,5 @@
 class MedicinesController < ApplicationController
+
   include MedicinesHelper
   def home
     @medicine = Medicine.new
@@ -52,6 +53,29 @@ class MedicinesController < ApplicationController
     Medicine.find(params[:id]).destroy
     flash[:success] = "削除しました。"
     redirect_to :action => 'home'
+  end
+
+  def output
+    require 'thinreports'
+    @medicine = Medicine.find(params[:id])
+    report = Thinreports::Report.new(layout: "#{Rails.root}/app/pdfs/medicines_dicard.tlf")
+
+    report.start_new_page
+    report.page.item(:reported_at).value(@medicine.reported_at)
+    report.page.item(:request_staff).value(@medicine.request_staff)
+    report.page.item(:source).value(@medicine.source)
+    report.page.item(:title).value(@medicine.title)
+    report.page.item(:name).value(@medicine.name)
+    report.page.item(:detail).value(@medicine.detail)
+    report.page.item(:report_staff).value(@medicine.report_staff)
+    
+    file = report.generate
+
+    send_data(
+      file,
+      filename: "DICard.pdf",
+      type: "application/pdf",
+      disposition: "inline")
   end
 
   def medicine_params

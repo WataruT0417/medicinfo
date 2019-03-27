@@ -15,6 +15,7 @@ gem 'pry-rails'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'unicorn', '5.5.0'
+gem 'thinreports', '0.10.3'
 group :development, :test do
   gem 'mysql2', '0.5.2'
   gem 'byebug',  '9.0.6', platform: :mri
