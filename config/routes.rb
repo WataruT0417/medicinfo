@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'medicines/:id/destroy', to: 'medicines#destroy'  
   get 'medicines/filter', to: 'medicines#filter'
   get 'medicines/:id/output', to: 'medicines#output'
+  post 'medicines/approve', to: 'medicines#approve'
 
   patch 'reactions/:id', to: 'reactions#update', as: 'update_reaction'
   get 'reactions', to: 'reactions#home'

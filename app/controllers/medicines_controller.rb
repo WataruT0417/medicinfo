@@ -78,6 +78,11 @@ class MedicinesController < ApplicationController
       disposition: "inline")
   end
 
+  def approve
+    Medicine.update_all ['approval_flg = ?', true]
+    redirect_to :action => 'home'
+  end
+
   def medicine_params
     params.require(:medicine).permit(:name, :title, :reported_at, :request_staff, :detail, :source, :report_staff, :approval_flg)
   end
