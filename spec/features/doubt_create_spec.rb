@@ -4,7 +4,7 @@ RSpec.describe DoubtsController, type: :feature do
   
   before do
     @params_title = ' | 医薬品情報管理システム'
-    @doubt = FactoryGirl.build(:doubt)
+    @doubt = FactoryBot.build(:doubt)
     visit "/doubts/new"
   end
 
@@ -14,7 +14,7 @@ RSpec.describe DoubtsController, type: :feature do
     fill_in "reported_at", with: @doubt.reported_at
     fill_in "doctor", with: @doubt.doctor
     fill_in "detail", with: @doubt.detail
-    fill_in "report_staff", with: @doubt.report_staff
+    select @doubt.report_staff, from: "report_staff"
     expect { click_button '登録' }.to change(Doubt, :count)
   end
 
@@ -24,7 +24,7 @@ RSpec.describe DoubtsController, type: :feature do
     fill_in "reported_at", with: @doubt.reported_at
     fill_in "doctor", with: @doubt.doctor
     fill_in "detail", with: @doubt.detail
-    fill_in "report_staff", with: @doubt.report_staff
+    select @doubt.report_staff, from: "report_staff"
     click_button '登録'
     expect(page).to have_content("can't be blank")
   end

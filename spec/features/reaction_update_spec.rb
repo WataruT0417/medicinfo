@@ -4,7 +4,7 @@ RSpec.describe ReactionsController, type: :feature do
 
   before do
     @params_title = ' | 医薬品情報管理システム'
-    @reaction = FactoryGirl.create(:reaction) 
+    @reaction = FactoryBot.create(:reaction) 
     visit "/reactions/#{@reaction.id}/edit"
   end
 

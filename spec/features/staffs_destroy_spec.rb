@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe StaffsController, type: :feature do
 
   before do
-    @staff = FactoryGirl.create(:staff)
+    @staff = FactoryBot.create(:staff)
     visit "/staffs"
   end
 

@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe StaffsController, type: :request do
   before do
     @params_title = ' | 医薬品情報管理システム'
-    @staff = FactoryGirl.create(:staff)
+    @staff = FactoryBot.create(:staff)
   end
 
   describe "GET /staffs" do

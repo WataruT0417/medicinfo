@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe ReactionsController, type: :request do
   before do
     @params_title = ' | 医薬品情報管理システム'
-    @reaction = FactoryGirl.create(:reaction)
+    @reaction = FactoryBot.create(:reaction)
   end
 
   describe "GET /reactions" do

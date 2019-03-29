@@ -4,7 +4,7 @@ RSpec.describe MedicinesController, type: :feature do
 
   before do
     @params_title = ' | 医薬品情報管理システム'
-    @medicine = FactoryGirl.create(:medicine) 
+    @medicine = FactoryBot.create(:medicine) 
     visit "/medicines/#{@medicine.id}/edit"
   end
 

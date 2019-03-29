@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Doubt, type: :model do
   before do
-    @doubt = FactoryGirl.build(:doubt)
+    @doubt = FactoryBot.build(:doubt)
   end
 
   shared_examples 'Doubt-model respond to attribute or method' do

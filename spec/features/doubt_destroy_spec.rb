@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe DoubtsController, type: :feature do
 
   before do
-    @doubt = FactoryGirl.create(:doubt)
+    @doubt = FactoryBot.create(:doubt)
     visit "/doubts"
   end
 

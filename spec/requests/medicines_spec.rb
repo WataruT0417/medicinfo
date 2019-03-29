@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe MedicinesController, type: :request do
   before do
     @params_title = ' | 医薬品情報管理システム'
-    @medicine = FactoryGirl.create(:medicine)
+    @medicine = FactoryBot.create(:medicine)
   end
 
   describe "GET /medicines" do

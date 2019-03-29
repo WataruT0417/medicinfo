@@ -20,7 +20,7 @@ group :development, :test do
   gem 'mysql2', '0.5.2'
   gem 'byebug',  '9.0.6', platform: :mri
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'guard-rspec', require: false
   gem 'database_rewinder', '0.9.1'
@@ -31,6 +31,7 @@ group :development, :test do
   gem "selenium-webdriver", '3.141.0'
   gem 'launchy', '2.4.3'
   gem 'database_cleaner', '1.7.0'
+  gem 'rspec-html-matchers', '0.9.1'
 end
 
 group :development do

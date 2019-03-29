@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe MedicinesController, type: :feature do
 
   before do
-    @medicine = FactoryGirl.create(:medicine)
+    @medicine = FactoryBot.create(:medicine)
     visit "/medicines"
   end
 

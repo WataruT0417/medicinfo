@@ -4,7 +4,7 @@ RSpec.describe DoubtsController, type: :feature do
 
   before do
     @params_title = ' | 医薬品情報管理システム'
-    @doubt = FactoryGirl.create(:doubt) 
+    @doubt = FactoryBot.create(:doubt) 
     visit "/doubts/#{@doubt.id}/edit"
   end
 

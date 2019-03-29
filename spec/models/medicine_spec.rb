@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Medicine, type: :model do
   before do
-    @medicine = FactoryGirl.build(:medicine)
+    @medicine = FactoryBot.build(:medicine)
   end
 
   shared_examples 'Medicine-model respond to attribute or method' do

@@ -4,7 +4,7 @@ RSpec.describe StaffsController, type: :feature do
   
   before do
     @params_title = ' | 医薬品情報管理システム'
-    @staff = FactoryGirl.build(:staff)
+    @staff = FactoryBot.build(:staff)
     visit "/staffs/new"
   end
 

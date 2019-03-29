@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Reaction, type: :model do
   before do
-    @reaction = FactoryGirl.build(:reaction)
+    @reaction = FactoryBot.build(:reaction)
   end
 
   shared_examples 'Reaction-model respond to attribute or method' do

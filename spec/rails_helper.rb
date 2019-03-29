@@ -22,26 +22,27 @@ RSpec.configure do |config|
   config.include JsonSpec::Helpers
   config.include RSpec::RequestDescriber, type: :request
 
+
+
+
   config.before :all do
-    FactoryGirl.reload
+    #FactoryBot.reload
+    #DatabaseCleaner.start
   end
 
   config.before :suite do
     DatabaseRewinder.clean_all
     DatabaseCleaner.strategy = :truncation
+    ActiveRecord::Base.connection.execute('ALTER TABLE staffs AUTO_INCREMENT = 1')
+    load Rails.root.join('db', 'seeds.rb')
   end
 
   config.after :each do
-    DatabaseRewinder.clean
-  end
-
-  config.before :each do
-    DatabaseCleaner.start
-  end
-
-  config.after :each do
-    DatabaseCleaner.clean
+    DatabaseCleaner.clean_with :truncation, { except: %w(staffs) }
   end
   
+  config.after :suite do
+    DatabaseRewinder.clean
+  end
   Autodoc.configuration.toc = true
 end

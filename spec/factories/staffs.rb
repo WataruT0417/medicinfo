@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   sequence :seq_staff_name do |i| 
-    "テスト 職員#{i}"
+    "テスト 報告者#{i}"
   end
 
   factory :staff do

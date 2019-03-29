@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Staff, type: :model do
   before do
-    @staff = FactoryGirl.build(:staff)
+    @staff = FactoryBot.build(:staff)
   end
 
   shared_examples 'Staff-model respond to attribute or method' do

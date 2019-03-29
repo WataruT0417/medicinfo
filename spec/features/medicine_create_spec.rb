@@ -4,7 +4,7 @@ RSpec.describe MedicinesController, type: :feature do
   
   before do
     @params_title = ' | 医薬品情報管理システム'
-    @medicine = FactoryGirl.build(:medicine)
+    @medicine = FactoryBot.build(:medicine)
     visit "/medicines/new"
   end
 
@@ -15,7 +15,7 @@ RSpec.describe MedicinesController, type: :feature do
     fill_in "request_staff", with: @medicine.request_staff
     fill_in "detail", with: @medicine.detail
     fill_in "source", with: @medicine.source
-    fill_in "report_staff", with: @medicine.report_staff
+    select @medicine.report_staff, from: "report_staff"
     expect { click_button '登録' }.to change(Medicine, :count)
   end
 
@@ -26,7 +26,7 @@ RSpec.describe MedicinesController, type: :feature do
     fill_in "request_staff", with: @medicine.request_staff
     fill_in "detail", with: @medicine.detail
     fill_in "source", with: @medicine.source
-    fill_in "report_staff", with: @medicine.report_staff
+    select @medicine.report_staff, from: "report_staff"
     click_button '登録'
     expect(page).to have_content("can't be blank")
   end
